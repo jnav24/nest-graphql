@@ -7,7 +7,7 @@ import {HeroesModule} from './heroes/heroes.module';
 @Module({
     imports: [
         HeroesModule,
-        MongooseModule.forRoot('mongodb://localhost:27017/heroes'),
+        MongooseModule.forRoot('mongodb://nest:nestMongoDB@localhost:27017/heroes'),
     ],
     controllers: [AppController],
     providers: [AppService],
