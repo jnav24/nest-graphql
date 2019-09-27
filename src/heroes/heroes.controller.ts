@@ -1,4 +1,4 @@
-import {Controller, Get} from '@nestjs/common';
+import {BadRequestException, Controller, Get} from '@nestjs/common';
 import {HeroesService} from './heroes.service';
 
 @Controller('heroes')
@@ -12,10 +12,7 @@ export class HeroesController {
         try {
             return await this.heroesService.findAll();
         } catch (error) {
-            console.log(error);
-            return {
-                message: 'there was an error',
-            };
+            throw new BadRequestException(error.errmsg || error);
         }
     }
 }
