@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import {IsString} from 'class-validator';
 
 export interface HeroesInterface {
     id?: string;
@@ -13,13 +14,28 @@ export interface HeroesInterface {
 }
 
 export class HeroesDto {
+    @IsString()
     alias: string;
+
+    @IsString()
     description: string;
+
+    @IsString()
     gender: string;
+
+    @IsString()
     image: string;
+
+    @IsString()
     name: string;
+
+    @IsString()
     slug: string;
+
+    @IsString()
     species: string;
+
+    @IsString()
     universe: string;
 }
 
