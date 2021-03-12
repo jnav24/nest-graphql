@@ -22,9 +22,7 @@ export class HeroesController {
     @UsePipes(new ValidationPipe())
     public async store(@Body() hero: HeroesDto) {
         try {
-            return {
-                name: 'joe shmoe',
-            };
+            await this.heroesService.create(hero);
         } catch (error) {
             throw new BadRequestException(error.errmsg || error);
         }
